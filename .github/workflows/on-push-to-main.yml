@@ -22,4 +22,4 @@ jobs:
         script: |
           cd ${{ secrets.SSH_PATH }}
           docker build -t api .
-          docker run --expose 80 api
+          docker run --expose 8080 api

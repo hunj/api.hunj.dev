@@ -8,4 +8,4 @@ COPY poetry.lock /src/poetry.lock
 RUN pip install poetry
 RUN poetry install
 
-CMD ["poetry", "run", "uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["poetry", "run", "uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8080"]
