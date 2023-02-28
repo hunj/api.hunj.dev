@@ -20,5 +20,6 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         envs: GITHUB_SHA
         script: |
-          whoami
-          echo $GITHUB_SHA
+          cd ${{ secrets.SSH_PATH }}
+          sudo docker build -t api .
+          sudo docker run --expose 80 api
