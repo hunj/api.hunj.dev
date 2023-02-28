@@ -7,7 +7,7 @@ app = FastAPI()
 
 @app.get("/status")
 def status():
-    sha = os.environ.get('COMMIT_SHA')
+    sha = os.environ.get('GITHUB_SHA')
     return {"sha": sha}
 
 
