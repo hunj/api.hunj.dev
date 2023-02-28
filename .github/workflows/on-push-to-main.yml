@@ -12,9 +12,13 @@ jobs:
     steps:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v0.1.7
+      env:
+        GITHUB_SHA: ${{ github.sha }}
       with:
         host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USER }}
+        username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_KEY }}
+        envs: GITHUB_SHA
         script: |
           whoami
+          echo $GITHUB_SHA
