@@ -1,12 +1,18 @@
+import os
 from typing import Union
-
 from fastapi import FastAPI
 
 app = FastAPI()
 
 
-@app.get("/")
-def read_root():
+@app.get("/status")
+def status():
+    sha = os.environ.get('COMMIT_SHA')
+    return {"sha": sha}
+
+
+@app.get("/hello")
+def hello():
     return {"Hello": "World"}
 
 
